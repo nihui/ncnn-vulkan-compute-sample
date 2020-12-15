@@ -30,7 +30,6 @@ jobs:
       run: |
         mkdir ncnn-vulkan-compute-sample-artifact
         Copy-Item -Verbose -Path "build\Release\mla.exe" -Destination "ncnn-vulkan-compute-sample-artifact"
-        Copy-Item -Verbose -Recurse -Path "models\*" -Destination "ncnn-vulkan-compute-sample-artifact"
     - uses: actions/upload-artifact@v2
       with:
         name: ncnn-vulkan-compute-sample-artifact-windows-2016
@@ -65,7 +64,6 @@ jobs:
       run: |
         mkdir ncnn-vulkan-compute-sample-artifact
         Copy-Item -Verbose -Path "build\Release\mla.exe" -Destination "ncnn-vulkan-compute-sample-artifact"
-        Copy-Item -Verbose -Recurse -Path "models\*" -Destination "ncnn-vulkan-compute-sample-artifact"
     - uses: actions/upload-artifact@v2
       with:
         name: ncnn-vulkan-compute-sample-artifact-windows-2019
@@ -99,7 +97,6 @@ jobs:
         mkdir ncnn-vulkan-compute-sample-artifact
         strip build/mla
         cp -v build/mla ncnn-vulkan-compute-sample-artifact
-        cp -v -r models/* ncnn-vulkan-compute-sample-artifact
     - uses: actions/upload-artifact@v2
       with:
         name: ncnn-vulkan-compute-sample-artifact-ubuntu-16.04
@@ -133,7 +130,6 @@ jobs:
         mkdir ncnn-vulkan-compute-sample-artifact
         strip build/mla
         cp -v build/mla ncnn-vulkan-compute-sample-artifact
-        cp -v -r models/* ncnn-vulkan-compute-sample-artifact
     - uses: actions/upload-artifact@v2
       with:
         name: ncnn-vulkan-compute-sample-artifact-ubuntu-18.04
@@ -167,7 +163,6 @@ jobs:
         mkdir ncnn-vulkan-compute-sample-artifact
         strip build/mla
         cp -v build/mla ncnn-vulkan-compute-sample-artifact
-        cp -v -r models/* ncnn-vulkan-compute-sample-artifact
     - uses: actions/upload-artifact@v2
       with:
         name: ncnn-vulkan-compute-sample-artifact-ubuntu-20.04
@@ -201,7 +196,6 @@ jobs:
         mkdir ncnn-vulkan-compute-sample-artifact
         strip build/mla
         cp -v build/mla ncnn-vulkan-compute-sample-artifact
-        cp -v -r models/* ncnn-vulkan-compute-sample-artifact
     - uses: actions/upload-artifact@v2
       with:
         name: ncnn-vulkan-compute-sample-artifact-macos-10.15

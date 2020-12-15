@@ -128,4 +128,7 @@ if(USE_STATIC_MOLTENVK)
 endif()
 
 add_executable(mla mla.cpp)
+
+set_target_properties(mla PROPERTIES CXX_STANDARD 11)
+
 target_link_libraries(mla ${APP_LINK_LIBRARIES})
