@@ -23,7 +23,7 @@ jobs:
       run: |
         $env:VULKAN_SDK="$(pwd)/VulkanSDK"
         mkdir build; cd build
-        cmake -A x64 ../src
+        cmake -A x64 ..
     - name: build
       run: cmake --build build --config Release -j 2
     - name: deploy
@@ -58,7 +58,7 @@ jobs:
       run: |
         $env:VULKAN_SDK="$(pwd)/VulkanSDK"
         mkdir build; cd build
-        cmake -A x64 ../src
+        cmake -A x64 ..
     - name: build
       run: cmake --build build --config Release -j 2
     - name: deploy
@@ -91,7 +91,7 @@ jobs:
         rm -rf 1.2.135.0/source 1.2.135.0/samples
         find 1.2.135.0 -type f | grep -v -E 'vulkan|glslang' | xargs rm
     - name: configure
-      run: export VULKAN_SDK=`pwd`/1.2.135.0/x86_64 && mkdir build && cd build && cmake ../src
+      run: export VULKAN_SDK=`pwd`/1.2.135.0/x86_64 && mkdir build && cd build && cmake ..
     - name: build
       run: cmake --build build -j 2
     - name: deploy
@@ -125,7 +125,7 @@ jobs:
         rm -rf 1.2.135.0/source 1.2.135.0/samples
         find 1.2.135.0 -type f | grep -v -E 'vulkan|glslang' | xargs rm
     - name: configure
-      run: export VULKAN_SDK=`pwd`/1.2.135.0/x86_64 && mkdir build && cd build && cmake ../src
+      run: export VULKAN_SDK=`pwd`/1.2.135.0/x86_64 && mkdir build && cd build && cmake ..
     - name: build
       run: cmake --build build -j 2
     - name: deploy
@@ -159,7 +159,7 @@ jobs:
         rm -rf 1.2.135.0/source 1.2.135.0/samples
         find 1.2.135.0 -type f | grep -v -E 'vulkan|glslang' | xargs rm
     - name: configure
-      run: export VULKAN_SDK=`pwd`/1.2.135.0/x86_64 && mkdir build && cd build && cmake ../src
+      run: export VULKAN_SDK=`pwd`/1.2.135.0/x86_64 && mkdir build && cd build && cmake ..
     - name: build
       run: cmake --build build -j 2
     - name: deploy
@@ -193,7 +193,7 @@ jobs:
         rm -rf vulkansdk-macos-1.2.135.0/Applications
         find vulkansdk-macos-1.2.135.0 -type f | grep -v -E 'vulkan|glslang|MoltenVK' | xargs rm
     - name: configure
-      run: export VULKAN_SDK=`pwd`/vulkansdk-macos-1.2.135.0/macOS && mkdir build && cd build && cmake -DUSE_STATIC_MOLTENVK=ON -DVulkan_LIBRARY=`pwd`/../vulkansdk-macos-1.2.135.0/MoltenVK/macOS/framework/MoltenVK.framework/MoltenVK ../src
+      run: export VULKAN_SDK=`pwd`/vulkansdk-macos-1.2.135.0/macOS && mkdir build && cd build && cmake -DUSE_STATIC_MOLTENVK=ON -DVulkan_LIBRARY=`pwd`/../vulkansdk-macos-1.2.135.0/MoltenVK/macOS/framework/MoltenVK.framework/MoltenVK ..
     - name: build
       run: cmake --build build -j 2
     - name: deploy
