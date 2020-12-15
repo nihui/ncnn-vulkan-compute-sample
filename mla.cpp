@@ -51,17 +51,21 @@ void main()
 }
 )";
 
-int main()
+int main(int argc, char** argv)
 {
+    bool use_fp16 = argc > 1 ? atoi(argv[1]) : 0;
+
+    fprintf(stderr, "use_fp16 = %d\n", use_fp16);
+
     const int count = 10 * 1024 * 1024;
     const int loop = 1000;
     const int cmd_loop = 10;
 
     ncnn::Option opt;
     opt.use_vulkan_compute = true;
-    opt.use_fp16_packed = false;
-    opt.use_fp16_storage = false;
-    opt.use_fp16_arithmetic = false;
+    opt.use_fp16_packed = use_fp16;
+    opt.use_fp16_storage = use_fp16;
+    opt.use_fp16_arithmetic = use_fp16;
 
     ncnn::VulkanDevice* vkdev = ncnn::get_gpu_device();
 
