@@ -72,7 +72,7 @@ int main(int argc, char** argv)
     // setup pipeline
     ncnn::Pipeline pipeline(vkdev);
     {
-        int local_size_x = std::min(128, std::max(32, (int)vkdev->info.subgroup_size));
+        int local_size_x = (int)vkdev->info.subgroup_size;
 
         pipeline.set_local_size_xyz(local_size_x, 1, 1);
 
@@ -81,9 +81,8 @@ int main(int argc, char** argv)
         specializations[1].i = loop;
 
         // glsl to spirv
-        // -1 for omit the tail '\0'
         std::vector<uint32_t> spirv;
-        ncnn::compile_spirv_module(glsl_data, sizeof(glsl_data) - 1, opt, spirv);
+        ncnn::compile_spirv_module(glsl_data, opt, spirv);
 
         pipeline.create(spirv.data(), spirv.size() * 4, specializations);
     }
