@@ -11,6 +11,7 @@ if(NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/ncnn/CMakeLists.txt")
 endif()
 
 option(NCNN_INSTALL_SDK "" OFF)
+option(NCNN_PLATFORM_API "" OFF)
 option(NCNN_PIXEL "" OFF)
 option(NCNN_PIXEL_ROTATE "" OFF)
 option(NCNN_PIXEL_AFFINE "" OFF)
