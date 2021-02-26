@@ -72,7 +72,7 @@ int main(int argc, char** argv)
     // setup pipeline
     ncnn::Pipeline pipeline(vkdev);
     {
-        int local_size_x = (int)vkdev->info.subgroup_size;
+        int local_size_x = (int)vkdev->info.subgroup_size();
 
         pipeline.set_local_size_xyz(local_size_x, 1, 1);
 
